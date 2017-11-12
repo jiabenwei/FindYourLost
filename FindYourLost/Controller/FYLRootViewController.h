@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^clickRetry)();
+
 @interface FYLRootViewController : UIViewController
 
 @property (nonatomic , strong) UIView *cNavigationBar;
 @property (nonatomic , strong) UIView *noDataView;
 
 - (void)showNoDataView:(UIEdgeInsets)inset;
+- (void)showNetError:(UIEdgeInsets)inset clickHandle:(clickRetry)retry;
 - (void)dismissNoDataView;
 @end

@@ -75,12 +75,25 @@
         [ProgressHUD dismiss];
         [self dismissNoDataView];
         [self.tableView.mj_header endRefreshing];
-        if ([error boolValue]) {
-            // no data
-            [self showNoDataView:UIEdgeInsetsMake(kTopHeight, 0, kTabBarHeight, 0)];
+        if ([error isEqual:@3] && self.viewModel.dataArray.count == 0) {
+            @weakify(self);
+            [self showNetError:UIEdgeInsetsMake(kTopHeight, 0, kTabBarHeight, 0) clickHandle:^{
+                @strongify(self);
+                [ProgressHUD show];
+                [self dismissNoDataView];
+                self.viewModel.currentPage = 0;
+                self.viewModel.isNoMoreData = NO;
+                [self.viewModel.loadDataCommand execute:nil];
+            }];
         }else{
-            [self.tableView reloadData];
+            if ([error boolValue]) {
+                // no data
+                [self showNoDataView:UIEdgeInsetsMake(kTopHeight, 0, kTabBarHeight, 0)];
+            }else{
+                [self.tableView reloadData];
+            }
         }
+        
     }];
 
 }

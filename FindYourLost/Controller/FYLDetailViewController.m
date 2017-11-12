@@ -296,7 +296,7 @@
         _imageView.layer.borderWidth = 0.5;
         _iconImageView.layer.cornerRadius = 35;
         _iconImageView.clipsToBounds = YES;
-//        _iconImageView.backgroundColor = [UIColor redColor];
+        _iconImageView.backgroundColor = UIColorFromRGB(0xdddddd);
 
     }
     return _iconImageView;

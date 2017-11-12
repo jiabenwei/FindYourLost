@@ -54,6 +54,37 @@
     return _noDataView;
 }
 
+- (void)showNetError:(UIEdgeInsets)inset clickHandle:(clickRetry)retry {
+    [self.view addSubview:self.noDataView];
+    [self.noDataView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view).insets(inset);
+    }];
+    
+    UIImageView *icon = [[UIImageView alloc] initWithFrame:CGRectZero];
+    icon.image = [UIImage imageNamed:@"neterror"];
+    [self.noDataView addSubview:icon];
+    [icon mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(100, 100));
+        make.centerX.equalTo(self.noDataView);
+        make.top.equalTo(self.noDataView).offset(RatioPoint(100));
+    }];
+    
+    UILabel *tipLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+    tipLabel.textColor = UIColorFromRGB(0xFFFFFF);
+    tipLabel.font = [UIFont systemFontOfSize:18];
+    tipLabel.text = @"Network error,click Retry";
+    [self.noDataView addSubview:tipLabel];
+    [tipLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(icon.mas_bottom).offset(10);
+        make.centerX.equalTo(icon);
+    }];
+
+    [self.noDataView bk_whenTapped:^{
+        retry();
+    }];
+    
+}
+
 - (void)showNoDataView:(UIEdgeInsets)inset {
     [self.view addSubview:self.noDataView];
     [self.noDataView mas_makeConstraints:^(MASConstraintMaker *make) {

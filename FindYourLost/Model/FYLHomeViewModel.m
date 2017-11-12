@@ -58,16 +58,20 @@
                 self.isNoMoreData = YES;
             }
         }
-        [self checkError];
+        [self checkError:error];
     }];
 
 }
 
-- (void)checkError {
-    if (self.dataArray.count == 0) {
-        self.loadError = @(YES);
+- (void)checkError:(NSError *)error {
+    if (error) {
+        self.loadError = @3;
     }else{
-        self.loadError = @(NO);
+        if (self.dataArray.count == 0) {
+            self.loadError = @(YES);
+        }else{
+            self.loadError = @(NO);
+        }
     }
 }
 
