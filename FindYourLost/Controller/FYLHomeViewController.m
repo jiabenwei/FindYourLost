@@ -19,6 +19,7 @@
 @property (nonatomic , strong) UITableView *tableView;
 @property (nonatomic , strong) FYLHomeViewModel *viewModel;
 @property (nonatomic , assign) BOOL isLoadingMore;
+@property (nonatomic , strong) UIImageView *titleBgImageView;
 
 @end
 
@@ -110,6 +111,13 @@
 
 - (void)setupUI {
     self.cNavigationBar.hidden = NO;
+//    [self.cNavigationBar addSubview:self.titleBgImageView];
+//    [self.titleBgImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.centerX.equalTo(self.cNavigationBar);
+//        make.size.mas_equalTo(CGSizeMake(80, 44));
+//        make.bottom.equalTo(self.cNavigationBar);
+//    }];
+    
     
     [self.view addSubview:self.tableView];
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -163,6 +171,15 @@
         }
     }
     
+    
+}
+
+- (UIImageView *)titleBgImageView {
+    if (!_titleBgImageView) {
+        _titleBgImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+        _titleBgImageView.image = [UIImage imageNamed:@"titlePic"];
+    }
+    return _titleBgImageView;
     
 }
 
