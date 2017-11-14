@@ -572,6 +572,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "519ad42f-ddbf-43ad-9f1d-aa874dd88474";
 				PROVISIONING_PROFILE_SPECIFIER = developmentjia;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -583,7 +584,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Jun Lu (PY6HTY6T6G)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Jun Lu (PY6HTY6T6G)";
 				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				DEVELOPMENT_TEAM = 373Y6YW6R9;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/FindYourLost/PrefixHeader.pch";
 				INFOPLIST_FILE = FindYourLost/Info.plist;
@@ -591,7 +592,9 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.jia.FindYourLost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "519ad42f-ddbf-43ad-9f1d-aa874dd88474";
+				PROVISIONING_PROFILE_SPECIFIER = developmentjia;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
