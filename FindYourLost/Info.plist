@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>SSCollect</string>
+	<string>FindYourLost</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -28,9 +28,11 @@
 		<true/>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>500Helpers want to open your camera</string>
+	<string>FindYourLost want to open your camera</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>FindYourLost want to open your Photo Library</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>500Helpers want to open your Photo Library</string>
+	<string>FindYourLost want to open your Photo Library</string>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
