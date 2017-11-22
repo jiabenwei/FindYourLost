@@ -22,10 +22,12 @@
 #define kTopHeight (kStatusBarHeight + kNavBarHeight)
 
 #define ISLOGIN           @"isLogin"
+#define ISURL             @"isUrl"
 #define FYLUSERID         @"userId"
 #define FYLUSERNAME       @"userName"
 #define FYLUSERIMAGE      @"userImage"
 #define TABLEUSER         @"JWUser"
 #define TABLELOST         @"JWLost"
+#define TABLELOAD         @"JWLoad"
 #define TABLEVISITOR      @"JWVisitor"
 #define BMOBKEY           @"0f0323eafba9cf517ce59c4aaec88359"

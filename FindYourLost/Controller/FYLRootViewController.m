@@ -18,8 +18,11 @@
     [super viewDidLoad];
     self.automaticallyAdjustsScrollViewInsets = NO;
 //    self.view.backgroundColor = UIColorFromRGB(0xf8f8f8);
-    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bgImage"]];
-    
+//    self.view.backgroundColor = [UIColor colorWithPatternImage:[UIImage imageNamed:@"bgImage"]];
+    UIImageView *bgImageView = [[UIImageView alloc] initWithFrame:self.view.bounds];
+    [self.view addSubview:bgImageView];
+    bgImageView.userInteractionEnabled = YES;
+    bgImageView.image = [UIImage imageNamed:@"bgImage"];
     [self.view addSubview:self.cNavigationBar];
     [self.cNavigationBar mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.left.right.equalTo(self.view);

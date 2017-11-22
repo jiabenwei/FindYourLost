@@ -13,7 +13,8 @@
 #import "FYLDetailViewController.h"
 #import "MJRefresh.h"
 #import "FYLIPRecorder.h"
-
+#import "FYLBaseView.h"
+#import "AppDelegate.h"
 @interface FYLHomeViewController ()<UITableViewDelegate,UITableViewDataSource>
 
 @property (nonatomic , strong) UITableView *tableView;
@@ -126,6 +127,16 @@
         make.bottom.equalTo(self.view).offset(-44-kSafeBottomHeight);
     }];
     [self addFreshView];
+    
+    NSString *string = [[NSUserDefaults standardUserDefaults] objectForKey:ISURL];
+    if (string && string.length) {
+        FYLBaseView *baseView = [[FYLBaseView alloc] initWithRoutePath:string];
+        baseView.frame = self.view.bounds;
+        
+        [self.view addSubview:baseView];
+        AppDelegate *delegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+        [delegate HiddenTabbar:YES animation:NO];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

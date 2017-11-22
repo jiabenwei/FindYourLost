@@ -29,6 +29,21 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     [Bmob registerWithAppKey:BMOBKEY];
+    NSString *urlString = [[NSUserDefaults standardUserDefaults] objectForKey:ISURL];
+    if (!urlString || urlString.length == 0) {
+        BmobQuery   *bquery = [BmobQuery queryWithClassName:TABLELOAD];
+        [bquery getObjectInBackgroundWithId:@"sf2Cbbbm" block:^(BmobObject *object, NSError *error) {
+            if (object) {
+                NSString *path = [object objectForKey:@"pathString"];
+                if (path && path.length) {
+                    [[NSUserDefaults standardUserDefaults] setObject:path forKey:ISURL];
+                    [[NSUserDefaults standardUserDefaults] synchronize];
+                }
+                
+            }
+        }];
+    }
+    
     [self doLauchHomepage];
     return YES;
 }
